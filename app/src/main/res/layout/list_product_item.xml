@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/app_margin"
+    app:cardCornerRadius="@dimen/radius_corner"
+    app:cardElevation="@dimen/card_elevation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp">
+
+
+        <TextView
+            android:id="@+id/tvNameProduct"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:textSize="@dimen/textUserOrder"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="iPhone 14" />
+
+        <TextView
+            android:id="@+id/tvDescriptionProduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="4dp"
+            android:paddingLeft="4dp"
+            android:textSize="@dimen/textUserOrder"
+            app:layout_constraintEnd_toStartOf="@+id/tvPriceProduct"
+            app:layout_constraintStart_toEndOf="@+id/tvNameProduct"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Телефон Apple, модельный ряд 2020 г." />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:text="руб."
+            android:textSize="@dimen/textUserOrder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPriceProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textSize="@dimen/textUserOrder"
+            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="50 000.00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

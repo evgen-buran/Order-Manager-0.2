@@ -1,0 +1,100 @@
+1. Получение списка User из LiveData
+
+viewModel.getAllUsers() -возвращает LiveData<List<User>>
+мне надо передать в listUsers список List<User>.
+я хочу вытащить его из LiveData.
+----------------------------------------------------
+Правильно ли я написал следующий код?
+
+        viewModel = ViewModelProvider(this).get(AddOrderViewModel::class.java)
+        viewModel.getAllUsers()
+        viewModel.liveData.observe(this) { listUsers = it }
+
+       Нет, такой подход возвращает listUsers нулевой длины!
+       т.к. сначала получаю liveData, потом устанавливаю наблюдателя.
+       т.к. изменений в списке не происходит, то и наблюдатель ничего не меняет.
+------------------------------------------------------
+       Правильный подход такой:
+
+     viewModel = ViewModelProvider(this).get(AddOrderViewModel::class.java)
+        viewModel.getAllUsers() инициализация liveData, т.к. у нее lateinit
+     viewModel.liveData.observe(this) { listUsers = it }
+      viewModel.getAllUsers() вызов изменений в списке
+      ----------------------------------------------------------------------------------------------------
+2.    не меняется имя пользователя, несмотря на разный кликнутый итем
+в списке: (position в предлагаемом списке)
+id 3 Саша  (position 0)
+id 6 Слава (position 1)
+
+D:  UserID: 6, Name: слава, #Item position: 1
+D:  UserID: 6, Name: слава, #Item position: 0
+
+ошибка была в:
+users.forEach{if(it.user_id.toLong() == id) return user}
+forEach прогоняет весь список, не останавливаясь.
+
+Решение:
+ for (i in users) {
+            if(i.user_id.toLong() == id) return i
+        }
+        return null
+
+        ------------------------------------------------------------------------------
+
+Чтобы работала кнопка Назад в тулбаре, необходимо включить меню
+setHasOptionsMenu(true)
+файл XML  можно не создавать, если не планируются другие кнопки в туллбаре
+----------------------
+1 общий viewModel для нескольких фрагментов здесь установлено так:
+в const.kt создана константа
+VIEW_MODEL
+в активити! она инициализирована через провайдер,
+а во фрагментах, viewModel = VIEW_MODEL
+если же в каждом фрагменте задейстовать провайдер, то каждый раз
+будет заново инициализироваться ВьюМодель заново. А с ней
+и ЛайвДата, которая будет обнулять данные переданные ранее.
+
+для работы нескольких фрагментов с одной вьюМоделью, вьюМодель создавать в родительской активити
+и подключаться к ней.
+Активити:
+ viewModelOrderDetail = ViewModelProvider(this).get(OrderViewModel::class.java)
+ Фрагмент 1 и Фрагмент 2
+  viewModel = APP_ACTIVITY.viewModelOrderDetail
+
+
+2. картинка передается так:
+binding.imageView.setResourceImage(R.id...)
+----------------------------------------
+3. ViewPager2 does not support direct child views
+Если используется ViewPager2, то не использовать ФрагментМенеджер
+"Поэтому никогда не пытайтесь добавить фрагмент в viewPager2 напрямую, т.е. следующие строки кода
+не будут работать с viewPager2.
+
+    getFragmentManager().beginTransaction().replace(R.id.viewPager2, new q2_fragment()).addToBackStack(null).commit();
+
+Исключение возникает, если вы пытаетесь добавить фрагмент непосредственно в viewPager2 с помощью fragmentManager.
+Поэтому просто удалите приведенные выше строки кода, чтобы избавиться от этого исключения."
+-----------------------------------------------------
+проверка на пустой список автодополнения
+(из чатГПТ)
+val autoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
+autoCompleteTextView.setAdapter(adapter) // Установите адаптер для автодополнения
+
+autoCompleteTextView.setOnItemClickListener { _, _, _, _ ->
+    // Обработка выбора элемента из списка автодополнения
+}
+
+autoCompleteTextView.addTextChangedListener(object : TextWatcher {
+    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+    override fun afterTextChanged(s: Editable?) {
+        val enteredText = s.toString()
+        if (adapter.isEmpty) {
+            // В списке автодополнения нет предложений
+            // Выполните нужные действия
+            // Например, показ сообщения об отсутствии пользователя
+        }
+    }
+})

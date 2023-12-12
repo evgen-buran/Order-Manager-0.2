@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="right|top"
+    android:foregroundGravity="top"
+    tools:context=".ui.USERS.add_user.AddUserFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#"
+        app:layout_constraintBottom_toBottomOf="@+id/tvIdOrder"
+        app:layout_constraintEnd_toStartOf="@+id/tvNameUserAuto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvIdOrder"
+        app:layout_constraintVertical_bias="0.576" />
+
+    <TextView
+        android:id="@+id/tvGoNewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="+"
+        android:textSize="34sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameUserAuto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvNameUserAuto"
+        app:layout_constraintTop_toTopOf="@+id/tvNameUserAuto" />
+
+    <AutoCompleteTextView
+        android:id="@+id/tvProductNameAutoOrder"
+        style="@style/edit_text"
+        android:hint="@string/select_product"
+        app:layout_constraintEnd_toEndOf="@+id/tvNameUserAuto"
+        app:layout_constraintStart_toStartOf="@+id/tvNameUserAuto"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameUserAuto" />
+
+    <TextView
+        android:id="@+id/tvIdOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/titleUserOrder"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameUserAuto"
+        app:layout_constraintEnd_toStartOf="@+id/tvNameUserAuto"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/tvNameUserAuto"
+        app:layout_constraintVertical_bias="0.434"
+        tools:text="101" />
+
+    <AutoCompleteTextView
+        android:id="@+id/tvNameUserAuto"
+        style="@style/edit_text"
+        android:completionThreshold="1"
+        android:hint="@string/select_user"
+        app:layout_constraintEnd_toEndOf="@+id/etDescriptionOrder"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/etDescriptionOrder"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        app:layout_constraintEnd_toEndOf="@+id/tvProductNameAutoOrder"
+        app:layout_constraintStart_toStartOf="@+id/tvProductNameAutoOrder"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductNameAutoOrder">
+
+        <EditText
+            android:id="@+id/etCountProductAddOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="3"
+            android:gravity="right"
+            android:hint="@string/count"
+            android:inputType="number"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x" />
+
+        <TextView
+            android:id="@+id/tvPriceProductAddOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:gravity="center_horizontal"
+            android:textSize="16sp"
+            tools:text="10000" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="8dp"
+            android:text="@string/rub"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="@string/sum"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSumAddOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="20000" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingLeft="8dp"
+            android:text="@string/rub"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etDescriptionOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/app_margin"
+        android:ems="15"
+        android:hint="description"
+        android:inputType="text|textMultiLine"
+        android:lines="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/tvDateAddOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/app_margin"
+        app:layout_constraintEnd_toEndOf="@+id/etDescriptionOrder"
+        app:layout_constraintTop_toBottomOf="@+id/etDescriptionOrder"
+        tools:text="20.02.1980" />
+
+    <Button
+        android:id="@+id/btnAddOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/app_margin"
+        android:text="Add order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDateAddOrder" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Order Manager 0.2</string>
+    <string name="title_main">Orders</string>
+    <string name="title_user">Users</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_name">First Name</string>
+    <string name="second_name">Second Name</string>
+    <string name="add_new_order">Add new order</string>
+    <string name="product_name">Product name</string>
+    <string name="description_of_product">Description of product</string>
+    <string name="price">Price</string>
+    <string name="title_products">Products</string>
+    <string name="enter_name_of_product">Enter name of product</string>
+    <string name="select_product">select product</string>
+    <string name="select_user">select user</string>
+    <string name="count">count</string>
+    <string name="rub">rub.</string>
+    <string name="sum">Sum:</string>
+</resources>

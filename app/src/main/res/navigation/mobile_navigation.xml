@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/main_orders">
+
+
+        <fragment
+            android:id="@+id/orderFragment"
+            android:name="com.example.ordermanager02.ui.ORDERS.detail_order.OrderFragment"
+            android:label="fragment_order"
+            tools:layout="@layout/fragment_detail_order">
+            <action
+                android:id="@+id/action_orderFragment_to_navigation_orders"
+                app:destination="@id/main_orders" />
+        </fragment>
+        <fragment
+            android:id="@+id/main_orders"
+            android:name="com.example.ordermanager02.ui.ORDERS.main.OrderMainFragment"
+            android:label="@string/title_main"
+            tools:layout="@layout/fragment_main_order">
+            <action
+                android:id="@+id/action_navigation_orders_to_addOrderFragment"
+                app:destination="@id/addOrderFragment" />
+            <action
+                android:id="@+id/action_main_orders_to_orderFragment"
+                app:destination="@id/orderFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/addOrderFragment"
+            android:name="com.example.ordermanager02.ui.ORDERS.add_new_order.AddOrderFragment"
+            android:label="fragment_add_order"
+            tools:layout="@layout/fragment_add_order">
+            <action
+                android:id="@+id/action_addOrderFragment_to_navigation_orders"
+                app:destination="@id/main_orders" />
+            <action
+                android:id="@+id/action_addOrderFragment_to_addUserFragment"
+                app:destination="@id/addUserFragment" />
+        </fragment>
+    <fragment
+        android:id="@+id/main_users"
+        android:name="com.example.ordermanager02.ui.USERS.main_users.UserMainFragment"
+        android:label="Users"
+        tools:layout="@layout/fragment_main_user">
+        <action
+            android:id="@+id/action_userMainFragment_to_addUserFragment"
+            app:destination="@id/addUserFragment" />
+        <action
+            android:id="@+id/action_userMainFragment_to_detailUserFragment"
+            app:destination="@id/detailUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addUserFragment"
+        android:name="com.example.ordermanager02.ui.USERS.add_user.AddUserFragment"
+        android:label="fragment_add_user"
+        tools:layout="@layout/fragment_add_user" >
+        <action
+            android:id="@+id/action_addUserFragment_to_userMainFragment2"
+            app:destination="@id/main_users" />
+        <action
+            android:id="@+id/action_addUserFragment_to_addOrderFragment"
+            app:destination="@id/addOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailUserFragment"
+        android:name="com.example.ordermanager02.ui.USERS.detail_users.DetailUserFragment"
+        android:label="fragment_detail_user"
+        tools:layout="@layout/fragment_detail_user" >
+        <action
+            android:id="@+id/action_detailUserFragment_to_userMainFragment2"
+            app:destination="@id/main_users" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.example.ordermanager02.ui.PRODUCTS.add_new_product.AddProductFragment"
+        android:label="fragment_add_product"
+        tools:layout="@layout/fragment_add_product" >
+        <action
+            android:id="@+id/action_addProductFragment_to_productMainFragment"
+            app:destination="@id/main_products" />
+        <action
+            android:id="@+id/action_addProductFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProductFragment"
+        android:name="com.example.ordermanager02.ui.PRODUCTS.detail_order.DetailProductFragment"
+        android:label="fragment_detail_product"
+        tools:layout="@layout/fragment_detail_product" >
+        <action
+            android:id="@+id/action_detailProductFragment_to_productMainFragment"
+            app:destination="@id/main_products" />
+        <action
+            android:id="@+id/action_detailProductFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_products"
+        android:name="com.example.ordermanager02.ui.PRODUCTS.main.ProductMainFragment"
+        android:label="fragment_product_main"
+        tools:layout="@layout/fragment_product_main" >
+        <action
+            android:id="@+id/action_productMainFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_productMainFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
+</navigation>
+

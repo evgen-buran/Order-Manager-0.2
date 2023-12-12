@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.PRODUCTS.detail_order.DetailProductFragment">
+
+    <TextView
+        android:id="@+id/tvPriceProductDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:gravity="right"
+        android:padding="4dp"
+        android:textSize="@dimen/textUserOrder"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="50 000.00" />
+
+    <TextView
+        android:id="@+id/tvNameProductDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:paddingStart="8dp"
+        android:textSize="@dimen/textUserOrder"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="iPhone 14" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:paddingLeft="4dp"
+        android:text="руб."
+        android:textSize="@dimen/textUserOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDescriptionProductDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:paddingStart="4dp"
+        android:paddingLeft="4dp"
+        android:textSize="@dimen/textUserOrder"
+        app:layout_constraintEnd_toStartOf="@+id/tvPriceProductDetail"
+        app:layout_constraintStart_toEndOf="@+id/tvNameProductDetail"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Телефон Apple, модельный ряд 2020 г." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
