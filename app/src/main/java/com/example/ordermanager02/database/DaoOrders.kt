@@ -15,7 +15,7 @@ interface DaoOrders {
                 "table_users.nameUser, " +
                 "table_users.secondNameUser, " +
                 "table_orders.date, " +
-                "table_orders.quantity," +
+                "table_orders.quantity, " +
                 "table_product.nameProduct, " +
                 "table_product.priceProduct, " +
                 "table_orders.totalPrice " +
