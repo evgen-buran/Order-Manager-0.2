@@ -38,8 +38,8 @@ data class AppOrder(
     @ColumnInfo
     val date: String,
 
-    @ColumnInfo
-    val totalPrice : Float,
+    @ColumnInfo()
+    val totalPrice : Float = 0.0f
 ) : Serializable {
 
 }

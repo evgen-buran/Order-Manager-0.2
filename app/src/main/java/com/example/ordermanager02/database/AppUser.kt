@@ -10,6 +10,7 @@ data class AppUser(
     @PrimaryKey(autoGenerate = true) val user_id: Int = 0,
     @ColumnInfo val nameUser: String,
     @ColumnInfo val secondNameUser: String,
+    @ColumnInfo val phone: String,
 ) : Serializable {
     override fun toString(): String {
         return nameUser

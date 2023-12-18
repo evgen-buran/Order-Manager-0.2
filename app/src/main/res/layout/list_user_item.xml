@@ -48,11 +48,26 @@
             android:text="TextView"
             android:textSize="@dimen/titleUserOrder"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvNameUserItem"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvNameUserItem"
-            app:layout_constraintTop_toTopOf="@+id/tvNameUserItem"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Иванов" />
+
+        <TextView
+            android:id="@+id/tvPhoneUserItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="+79222222222"
+            android:textSize="@dimen/textUserOrder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNameUserItem"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameUserItem" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

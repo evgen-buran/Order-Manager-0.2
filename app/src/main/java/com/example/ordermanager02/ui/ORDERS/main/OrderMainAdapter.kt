@@ -1,5 +1,6 @@
 package com.example.ordermanager02.ui.ORDERS.main
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ordermanager02.R
 import com.example.ordermanager02.database.JoinOrder
 
-class OrderMainAdapter : RecyclerView.Adapter<OrderMainAdapter.MainHolder>() {
+class OrderMainAdapter(private val context: Context) :
+    RecyclerView.Adapter<OrderMainAdapter.MainHolder>() {
     private var listOrders: List<JoinOrder> = emptyList()
 
     class MainHolder(private val view: View) : RecyclerView.ViewHolder(view) {
@@ -28,15 +30,21 @@ class OrderMainAdapter : RecyclerView.Adapter<OrderMainAdapter.MainHolder>() {
             LayoutInflater.from(parent.context).inflate(R.layout.list_order_item, parent, false)
         return MainHolder(view)
     }
+
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         holder.tvIdOrderItem.text = listOrders[position].id.toString()
-        holder.tvOrderUserItem.text = listOrders[position].nameUser + " " + listOrders[position].secondNameUser
+        holder.tvOrderUserItem.text =
+            listOrders[position].nameUser + " " + listOrders[position].secondNameUser
         holder.tvDescripOrderItem.text = listOrders[position].description
         holder.tvDateOrderItem.text = listOrders[position].date
         holder.tvNameProductOrderItem.text = listOrders[position].nameProduct
-        holder.tvCountProductOrderItem.text = listOrders[position].quantity.toString()
-        holder.tvPriceProductOrderItem.text = listOrders[position].priceProduct.toString()
-        holder.tvSumOrderItem.text = listOrders[position].calculateTotalPrice().toString()
+        holder.tvCountProductOrderItem.text =
+            listOrders[position].quantity.toString() + " " + context.getString(R.string.pcs)
+        holder.tvPriceProductOrderItem.text =
+            listOrders[position].priceProduct.toString() + " " + context.getString(R.string.rub)
+        holder.tvSumOrderItem.text =
+            listOrders[position].calculateTotalPrice()
+                .toString() + " " + context.getString(R.string.rub)
 
     }
 
@@ -53,6 +61,6 @@ class OrderMainAdapter : RecyclerView.Adapter<OrderMainAdapter.MainHolder>() {
 
     override fun onViewAttachedToWindow(holder: MainHolder) {
         super.onViewAttachedToWindow(holder)
-        holder.itemView.setOnClickListener{OrderMainFragment.clickItemList(listOrders[holder.adapterPosition])}
+        holder.itemView.setOnClickListener { OrderMainFragment.clickItemList(listOrders[holder.adapterPosition]) }
     }
 }

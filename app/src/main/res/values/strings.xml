@@ -16,5 +16,7 @@
     <string name="select_user">select user</string>
     <string name="count">count</string>
     <string name="rub">rub.</string>
-    <string name="sum">Sum:</string>
+    <string name="total">Total:</string>
+    <string name="pcs">pcs.</string>
+    <string name="phone">Phone</string>
 </resources>

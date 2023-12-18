@@ -29,13 +29,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="TextView" />
+            android:gravity="right"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="Иван" />
 
         <TextView
             android:id="@+id/tvSecondNameDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="TextView" />
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="Иванов" />
+
+        <TextView
+            android:id="@+id/tvPhoneUserItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="+79222222222" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

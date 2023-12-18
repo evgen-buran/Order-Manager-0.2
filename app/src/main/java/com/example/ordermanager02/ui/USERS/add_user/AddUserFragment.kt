@@ -53,11 +53,12 @@ class AddUserFragment : Fragment() {
         binding.btnAddUser.setOnClickListener {
             val nameUser = binding.etFirstName.text.toString()
             val secondNameUser = binding.etSecondName.text.toString()
+            val phone = binding.etPhoneUser.text.toString()
 
             if (nameUser.isEmpty()) {
                 showToast("Name is empty!")
             } else {
-                viewModel.insert(AppUser(nameUser = nameUser, secondNameUser = secondNameUser))
+                viewModel.insert(AppUser(nameUser = nameUser, secondNameUser = secondNameUser, phone = phone))
                 Log.d(TAG, "onStart2: $destination")
                 APP_ACTIVITY.navController.navigate(destination)
             }

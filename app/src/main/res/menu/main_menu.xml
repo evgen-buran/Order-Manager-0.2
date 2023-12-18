@@ -7,4 +7,16 @@
         android:icon="@drawable/baseline_sort_24"
         android:title="Sort"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/testDatumItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Test BD"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/dropItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="dropBDItem"
+        app:showAsAction="ifRoom" />
 </menu>

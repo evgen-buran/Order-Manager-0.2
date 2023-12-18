@@ -34,9 +34,9 @@ class AddOrderFragment : Fragment() {
     private var currentUser: AppUser? = null
     private var currentProduct: AppProduct? = null
 
-  private var price: Float = 0f
-  private var sum: Float = 0f
-  private var count: Int = 0
+    private var price: Float = 0f
+    private var sum: Float = 0f
+    private var count: Int = 0
 
     private var autoCompleteUserAdapter: ListUserAdapter =
         ListUserAdapter(APP_ACTIVITY, listUsers)
@@ -150,28 +150,45 @@ class AddOrderFragment : Fragment() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
+                if (autoCompleteProductAdapter.isEmpty) {
+                    binding.tvGoNewProduct.visibility = View.VISIBLE
+                }
+                if (p0.toString()?.length == 0) binding.tvGoNewProduct.visibility = View.INVISIBLE
 
-//                price = currentProduct?.priceProduct ?: 0.0.toFloat()
-//                count = binding.etCountProductAddOrder?.text?.toString()?.toIntOrNull() ?: 0
-//                sum = (price * count)
-//
-//                binding.tvPriceProductAddOrder.text = price.toString()
-//                binding.tvSumAddOrder.text = sum.toString()
             }
 
 
+        })
+        binding.etCountProductAddOrder.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                count = binding.etCountProductAddOrder?.text?.toString()?.toIntOrNull() ?: 0
+                sum = (price * count)
+                binding.tvSumAddOrder.text = sum.toString()
+
+            }
         })
 
 
         binding.tvGoNewUser.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("newName", binding.tvNameUserAuto.text.toString())
-            bundle.putInt("destinationOrder", R.id.action_addUserFragment_to_addOrderFragment)
+//            bundle.putInt("destinationOrder", R.id.action_addUserFragment_to_addOrderFragment)
             APP_ACTIVITY.navController.navigate(
                 R.id.action_addOrderFragment_to_addUserFragment,
                 bundle
             )
         }
+        binding.tvGoNewProduct.setOnClickListener(){
+        val bundle = Bundle()
+        bundle.putString("newProduct", binding.tvGoNewProduct.text.toString())
+    }
+
 
 
         binding.btnAddOrder.setOnClickListener {
@@ -183,7 +200,7 @@ class AddOrderFragment : Fragment() {
                     date = tvDate,
                     id_product = currentProduct?.product_id!!,
                     quantity = count,
-                    totalPrice  = sum
+                    totalPrice = sum
 
                 )
             )

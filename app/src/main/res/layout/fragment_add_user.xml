@@ -22,6 +22,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
 
+    <EditText
+        android:id="@+id/etPhoneUser"
+        style="@style/edit_text"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSecondName" />
+
     <Button
         android:id="@+id/btnAddUser"
         android:layout_width="wrap_content"
@@ -29,5 +38,5 @@
         android:text="Add user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSecondName" />
+        app:layout_constraintTop_toBottomOf="@+id/etPhoneUser" />
 </androidx.constraintlayout.widget.ConstraintLayout>

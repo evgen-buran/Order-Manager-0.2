@@ -14,18 +14,41 @@ class OrderRepository(
     fun getAllOrders(): LiveData<List<JoinOrder>> {
         return daoOrders.getAllOrders()
     }
+    fun testDataOrders(){
+        return daoOrders.testDataOrders()
+    }
+
+    fun truncateOrders(){
+        return daoOrders.truncateOrders()
+    }
+    fun truncateProducts(){
+        return daoProduct.truncateProducts()
+    }
+    fun truncateUsers(){
+        return daoUsers.truncateUsers()
+    }
 
     fun getAllUsers(): LiveData<List<AppUser>> {
         return daoUsers.getAllUsers()
+    }
+    fun testDataUsers() {
+        return daoUsers.testDataUsers()
+    }
+
+    fun getListUsers(): List<AppUser> {
+        return daoUsers.getListUsers()
     }
 
     fun getAllProducts(): LiveData<List<AppProduct>> {
         return daoProduct.getAllProduct()
     }
 
-    fun getListUsers(): List<AppUser> {
-        return daoUsers.getListUsers()
+    fun testDataProducts() {
+        return daoProduct.testDataProducts()
     }
+
+
+
 
     // ------------------insert*---------------
     fun insertOrder(appOrder: AppOrder) {
