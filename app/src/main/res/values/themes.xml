@@ -12,5 +12,17 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="actionOverflowMenuStyle">@style/MyOverflowMenuStyle</item>
+    </style>
+    <style name="MyOverflowMenuStyle" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <!-- Change the color of the overflow menu icon -->
+        <item name="android:tint">@color/white</item>
+        <!-- Change the color of the overflow menu text -->
+        <item name="android:actionOverflowButtonStyle">@style/MyOverflowMenuTextAppearance</item>
+    </style>
+
+    <style name="MyOverflowMenuTextAppearance" parent="android:Widget.Material.Light.ActionButton.Overflow">
+        <!-- Change the color of the overflow menu text -->
+        <item name="android:src">@drawable/baseline_more_vert_24</item>
     </style>
 </resources>
