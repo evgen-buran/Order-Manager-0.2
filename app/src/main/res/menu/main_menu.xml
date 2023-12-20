@@ -20,5 +20,5 @@
         android:layout_height="wrap_content"
         android:icon="@drawable/baseline_delete_24"
         android:title="Clear DB"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="never" />
 </menu>
